@@ -17,7 +17,8 @@ public class Orbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position + new Vector3((float)Mathf.Sin((day / orbitTime) * 360 * Mathf.PI / 180) * radius, 0, (float)Mathf.Cos((day / orbitTime) * 360 * Mathf.PI / 180) * radius);
+        transform.position = target.transform.position + new Vector3(Mathf.Sin((day / orbitTime) * 2 * Mathf.PI) * radius, 0, Mathf.Cos((day / orbitTime) * 2 * Mathf.PI) * radius) ;
+        //transform.position = new Vector3(transform.position.x / transform.localScale.x, transform.position.y / transform.localScale.y, transform.position.z / transform.localScale.z);
         day += Time.deltaTime;
     }
 }
