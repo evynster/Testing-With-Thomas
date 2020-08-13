@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1530291086}
-  radius: 3
-  orbitTime: 5
+  radius: 0.2
+  orbitTime: 50
   day: 0
 --- !u!135 &598416825
 SphereCollider:
