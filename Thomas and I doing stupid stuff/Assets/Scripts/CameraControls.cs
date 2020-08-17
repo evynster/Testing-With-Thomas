@@ -29,16 +29,16 @@ public class CameraControls : MonoBehaviour
         //transform.leulerAngles = mouseLook;
         //mouseLook.x = Mathf.Clamp(mouseLook.x, 0f,89.5f );
 
-        mouseLook.x = Mathf.Clamp(mouseLook.x, 0, 150);
-       /* if(mouseLook.x >85f && mouseLook.x < 90f)
+       // mouseLook.x = Mathf.Clamp(mouseLook.x, 0, 150);
+        if(mouseLook.x >85f && mouseLook.x < 90f)
         {
             mouseLook.x = 84.9999999999999999f;
         }
-        else if (mouseLook.x < 270f && mouseLook.x > 275f)
+        else if (mouseLook.x < 275f && mouseLook.x > 270f)
         {
             mouseLook.x = 275.00000000000000001f;
         }
-         */
+         
         transform.localRotation = Quaternion.Euler(mouseLook.x, mouseLook.y, 0f);
         Debug.Log("mouse raw input "+ mouseX + mouseY + "mouseLook v3 x,y: " + mouseLook.x +" , "+ mouseLook.y);
         cameraTranslationSpeed();
