@@ -12,15 +12,10 @@ public class CameraControls : MonoBehaviour
     public float maximumY = 80F;
     float rotationX = 0F;
     float rotationY = 0F;
-    public float frameCounter = 20;
+    public float speed = 1f;
     Quaternion originalRotation;
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
-            Cursor.lockState = CursorLockMode.Locked;
-        if (Input.GetKey(KeyCode.O))
-            Cursor.lockState = CursorLockMode.None;
-
         //Gets rotational input from the mouse
         rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
         rotationX += Input.GetAxis("Mouse X") * sensitivityX;
@@ -36,6 +31,8 @@ public class CameraControls : MonoBehaviour
         //Rotate
         transform.localRotation = originalRotation * xQuaternion * yQuaternion;
 
+        cameraTranslationSpeed();
+        cameraKeyMovement();
     }
     void Start()
     {
@@ -57,6 +54,59 @@ public class CameraControls : MonoBehaviour
         }
         return Mathf.Clamp(angle, min, max);
     }
+    void cameraTranslationSpeed()
+    {
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            speed++;
+        }
+        else if (Input.mouseScrollDelta.y < 0 && speed > 0)
+        {
+            speed--;
+        }
 
+    }
+    void cameraKeyMovement()
+    {
 
+        if (Input.GetKey(KeyCode.P))
+            Cursor.lockState = CursorLockMode.Locked;
+        if (Input.GetKey(KeyCode.O))
+            Cursor.lockState = CursorLockMode.None;
+        //keyboard rotation 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(Vector3.forward * 0.05f);
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(Vector3.back * 0.05f);
+        }
+        //keyboard translation 
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(speed * Time.deltaTime, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.Translate(0f, speed * Time.deltaTime, 0f);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(-speed * Time.deltaTime, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.Translate(0f, -speed * Time.deltaTime, 0f);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0f, 0f, -speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0f, 0f, speed * Time.deltaTime);
+        }
+    }
 }
+

@@ -18,6 +18,6 @@ public class BannerLookAtCamera : MonoBehaviour
         Vector3 inheritCameraY = new Vector3(targetCamera.transform.eulerAngles.x, targetCamera.transform.eulerAngles.y, /*cameraZAxisInverted*/0);
         //transform.LookAt(target);
         transform.eulerAngles = inheritCameraY;
-        Debug.Log(inheritCameraY+ " "+ cameraZAxisInverted);
+        //Debug.Log(inheritCameraY+ " "+ cameraZAxisInverted);
     }
 }
