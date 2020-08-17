@@ -9,10 +9,15 @@ public class BannerLookAtCamera : MonoBehaviour
     {
         
     }
-    public Transform target;
+    public Transform targetCamera;
+    
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target);
+        float cameraZAxisInverted = targetCamera.transform.eulerAngles.z - (targetCamera.transform.eulerAngles.z * 2);
+        Vector3 inheritCameraY = new Vector3(targetCamera.transform.eulerAngles.x, targetCamera.transform.eulerAngles.y, /*cameraZAxisInverted*/0);
+        //transform.LookAt(target);
+        transform.eulerAngles = inheritCameraY;
+        Debug.Log(inheritCameraY+ " "+ cameraZAxisInverted);
     }
 }
