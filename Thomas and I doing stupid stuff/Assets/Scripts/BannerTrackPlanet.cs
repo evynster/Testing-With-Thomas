@@ -14,6 +14,6 @@ public class BannerTrackPlanet : MonoBehaviour
     void Update()
     {
         transform.position=planetPosition.position;
-        transform.position = transform.position + new Vector3(0,10,0);
+        transform.position = transform.position + new Vector3(0,2,0);
     }
 }
