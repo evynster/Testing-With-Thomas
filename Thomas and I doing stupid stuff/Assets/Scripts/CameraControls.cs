@@ -26,10 +26,7 @@ public class CameraControls : MonoBehaviour
         transform.Rotate(Vector3.left * mouseY);
         //any Z rotation from the mouse is then clamped out here.
         Vector3 mouseLook = new Vector3 (transform.eulerAngles.x, transform.eulerAngles.y, 0);
-        //transform.leulerAngles = mouseLook;
-        //mouseLook.x = Mathf.Clamp(mouseLook.x, 0f,89.5f );
-
-       // mouseLook.x = Mathf.Clamp(mouseLook.x, 0, 150);
+        
         if(mouseLook.x >85f && mouseLook.x < 90f)
         {
             mouseLook.x = 84.9999999999999999f;
