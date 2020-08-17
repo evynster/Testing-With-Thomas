@@ -11,7 +11,7 @@ public class RandomMakeSolarSystem : MonoBehaviour
       
         
     }
-    public Vector<int> temp;
+    public Vector<GameObject> temp;
     // Update is called once per frame
     void Update()
     {
